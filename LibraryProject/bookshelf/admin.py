@@ -1,0 +1,9 @@
+from django.contrib import admin
+from .models import Book
+
+class BookAdmin(admin.ModelAdmin):
+    list_display = ('title', 'author', 'publication_year')  # columns to show
+    search_fields = ('title', 'author')                      # allow searching
+    list_filter = ('publication_year',)                      # filter by year
+
+admin.site.register(Book, BookAdmin)
